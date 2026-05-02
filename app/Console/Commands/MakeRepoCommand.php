@@ -410,9 +410,9 @@ class MakeRepoCommand extends Command
 
             namespace App\Http\Requests\\{$name};
 
-            use Illuminate\Foundation\Http\FormRequest;
+            use App\Http\Requests\ApiRequest;
 
-            class {$prefix}{$name}Request extends FormRequest
+            class {$prefix}{$name}Request extends ApiRequest
             {
                 public function authorize(): bool
                 {

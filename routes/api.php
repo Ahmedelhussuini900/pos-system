@@ -1,10 +1,14 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+// ─── Auth (بدون token) ───
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login/pin', [AuthController::class, 'loginByPin']);
 
-Route::apiResource('products', \App\Http\Controllers\Api\ProductController::class);
+// ─── محمي بـ Token ───
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/me', [AuthController::class, 'me']);
+});
