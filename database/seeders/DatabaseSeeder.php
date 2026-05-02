@@ -15,11 +15,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $this->call(RoleAndAbilitySeeder::class);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // ─── Admin User ───
+        User::create([
+            'name'     => 'Admin',
+            'email'    => 'admin@pos.com',
+            'password' => bcrypt('password'),
+            'role_id'  => \App\Models\Role::where('name', 'admin')->first()->id,
+            'pin_code' => '111111',
+        ]);
+
+        // ─── Cashier User ───
+        User::create([
+            'name'     => 'Cashier',
+            'email'    => 'cashier@pos.com',
+            'password' => bcrypt('password'),
+            'role_id'  => \App\Models\Role::where('name', 'cashier')->first()->id,
+            'pin_code' => '222222',
         ]);
     }
 }
