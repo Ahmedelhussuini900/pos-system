@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();         // admin, cashier, kitchen
-            $table->string('display_name');            // مدير, كاشير, المطبخ
+            $table->string('name_ar')->unique();         // admin, cashier, kitchen
+            $table->string('name_en')->unique();         // admin, cashier, kitchen
+            $table->string('display_name_ar');            // مدير, كاشير, المطبخ
+            $table->string('display_name_en');            // مدير, كاشير, المطبخ
             $table->timestamps();
         });
     }

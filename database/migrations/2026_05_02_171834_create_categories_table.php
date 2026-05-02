@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
            $table->id();
-      $table->string('name');                    // مشروبات, ساندوتشات
+      $table->string('name_ar');                    // مشروبات, ساندوتشات
+      $table->string('name_en');                    // مشروبات, ساندوتشات
       $table->string('image')->nullable();       // صورة القسم
       $table->boolean('is_active')->default(true);
       $table->integer('sort_order')->default(0);

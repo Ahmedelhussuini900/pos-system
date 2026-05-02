@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('abilities', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();         // manage-products, create-order
-            $table->string('display_name'); 
+            $table->string('name_ar')->unique();         // manage-products, create-order
+            $table->string('name_en')->unique();         // manage-products, create-order
+            $table->string('display_name_ar'); 
+            $table->string('display_name_en'); 
             $table->timestamps();
         });
     }

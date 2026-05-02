@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'name'     => 'Admin',
             'email'    => 'admin@pos.com',
             'password' => bcrypt('password'),
-            'role_id'  => \App\Models\Role::where('name', 'admin')->first()->id,
+            'role_id'  => \App\Models\Role::where('name_en', 'admin')->first()->id,
             'pin_code' => '111111',
         ]);
 
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             'name'     => 'Cashier',
             'email'    => 'cashier@pos.com',
             'password' => bcrypt('password'),
-            'role_id'  => \App\Models\Role::where('name', 'cashier')->first()->id,
+            'role_id'  => \App\Models\Role::where('name_en', 'cashier')->first()->id,
             'pin_code' => '222222',
         ]);
     }
