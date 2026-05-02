@@ -14,3 +14,4 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Route::apiResource('categories', \App\Http\Controllers\Api\CategoryController::class);
+Route::apiResource('products', \App\Http\Controllers\Api\ProductController::class);
